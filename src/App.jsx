@@ -8,6 +8,9 @@ import SignUpForm from "./features/Authentication/SignUpForm";
 import LoginForm from "./features/authentication/LoginForm";
 import PageNotFound from "./ui/PageNotFound";
 import { Toaster } from "react-hot-toast";
+import Applications from "./pages/Applications";
+import NewApplication from "./pages/NewApplication";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -35,6 +38,15 @@ function App() {
                             element={<Navigate replace to="dashboard" />}
                         />
                         <Route element={<Dashboard />} path="dashboard"></Route>
+                        <Route
+                            element={<Applications />}
+                            path="applications"
+                        ></Route>
+                        <Route
+                            element={<NewApplication />}
+                            path="new_application"
+                        ></Route>
+                        <Route element={<Settings />} path="settings"></Route>
                     </Route>
                     <Route element={<LoginForm />} path="login"></Route>
                     <Route element={<SignUpForm />} path="signup"></Route>
