@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { updateApplication as updateApplicationApi } from "../../services/ApiApplications";
 import toast from "react-hot-toast";
 
-export function useEditApplication() {
+export function useUpdateApplication() {
     const queryClient = useQueryClient();
 
     const { mutate: updateApplication, isLoading: isUpdating } = useMutation({

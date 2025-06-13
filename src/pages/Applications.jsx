@@ -1,5 +1,7 @@
+import ApplicationsList from "../features/allApplications/ApplicationsList";
+
 function Applications() {
-    return <div>all applications</div>;
+    return <ApplicationsList />;
 }
 
 export default Applications;

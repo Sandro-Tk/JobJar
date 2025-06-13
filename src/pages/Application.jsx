@@ -1,24 +1,31 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useApplication } from "../features/allApplications/useApplication";
 import { useDeleteApplication } from "../features/allApplications/useDeleteApplication";
 import Spinner from "../ui/Spinner";
 import formatDate from "../utils/formatDate";
 import ApplicationField from "../ui/ApplicationField";
 import ApplicationHeader from "../ui/ApplicationHeader";
+import Modal from "../ui/Modal";
+import UpdateApplicationForm from "../features/allApplications/UpdateApplicationForm";
 
 function Application() {
     const [searchParams] = useSearchParams();
+    const [isEditing, setIsEditing] = useState(false);
     const id = searchParams.get("id");
     const navigate = useNavigate();
-    const { deleteApplication, isDeleting } = useDeleteApplication();
 
+    const { deleteApplication, isDeleting } = useDeleteApplication();
     const { data: app, isLoading, isError, error } = useApplication(id);
 
     const handleDelete = () => {
-        deleteApplication(id, {
-            onSettled: navigate("/dashboard"),
-        });
-        navigate("/dashboard");
+        if (
+            window.confirm("Are you sure you want to delete this application?")
+        ) {
+            deleteApplication(id, {
+                onSuccess: () => navigate("/dashboard"),
+            });
+        }
     };
 
     if (!id)
@@ -38,8 +45,8 @@ function Application() {
     return (
         <div className="max-w-2xl mx-auto bg-white border shadow rounded p-6 space-y-4">
             <ApplicationHeader
-                isDeleting={isDeleting}
                 onDelete={handleDelete}
+                onEdit={() => setIsEditing(true)}
             />
 
             <ApplicationField label="Company" value={app.company} />
@@ -68,6 +75,18 @@ function Application() {
                 />
             )}
             {app.notes && <ApplicationField label="Notes" value={app.notes} />}
+
+            {isEditing && (
+                <Modal onClose={() => setIsEditing(false)}>
+                    <h2 className="text-lg font-semibold mb-4">
+                        Edit Application
+                    </h2>
+                    <UpdateApplicationForm
+                        application={app}
+                        onClose={() => setIsEditing(false)}
+                    />
+                </Modal>
+            )}
         </div>
     );
 }

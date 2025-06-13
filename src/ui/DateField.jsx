@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, parseISO, isAfter } from "date-fns";
 
 export default function DateField({ label, error, register, name }) {
     const today = format(new Date(), "yyyy-MM-dd");
@@ -14,7 +14,7 @@ export default function DateField({ label, error, register, name }) {
                 {...register(name, {
                     required: true,
                     validate: (value) =>
-                        new Date(value) <= new Date() ||
+                        !isAfter(parseISO(value), parseISO(today)) ||
                         "Date cannot be in the future",
                 })}
                 defaultValue={today}
