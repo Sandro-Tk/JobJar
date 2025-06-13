@@ -1,16 +1,17 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
 import AppLayout from "./ui/AppLayout";
-import Dashboard from "./Pages/Dashboard";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import Dashboard from "./pages/Dashboard";
+import Applications from "./pages/Applications";
+import Application from "./pages/Application";
+import AddApplication from "./pages/AddApplication";
+import Settings from "./pages/Settings";
 import SignUpForm from "./features/Authentication/SignUpForm";
 import LoginForm from "./features/authentication/LoginForm";
 import PageNotFound from "./ui/PageNotFound";
-import { Toaster } from "react-hot-toast";
-import Applications from "./pages/Applications";
-import NewApplication from "./pages/NewApplication";
-import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -43,8 +44,12 @@ function App() {
                             path="all_applications"
                         ></Route>
                         <Route
-                            element={<NewApplication />}
+                            element={<AddApplication />}
                             path="new_application"
+                        ></Route>
+                        <Route
+                            element={<Application />}
+                            path="application"
                         ></Route>
                         <Route element={<Settings />} path="settings"></Route>
                     </Route>

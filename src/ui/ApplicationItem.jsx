@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
+import formatDate from "../utils/formatDate";
 
 const statusStyles = {
-    applied: "bg-gray-100 text-gray-700",
-    interview: "bg-indigo-100 text-indigo-700",
-    offer: "bg-green-100 text-green-700",
-    rejected: "bg-red-100 text-red-700",
+    Applied: "bg-gray-100 text-gray-700",
+    Interview: "bg-indigo-100 text-indigo-700",
+    Offer: "bg-green-100 text-green-700",
+    Rejected: "bg-red-100 text-red-700",
+    Ghosted: "bg-yellow-100 text-yellow-700",
+    Archived: "bg-neutral-100 text-neutral-700",
 };
 
-function ApplicationItem({ id, company, position, status, appliedAt }) {
+function ApplicationItem({ id, company, position, status, applied_at }) {
     return (
         <Link
-            to={`/applications/${id}`}
+            to={`/application?id=${id}`}
             className="flex items-center justify-between bg-white border rounded-lg px-6 py-4 shadow transition transform hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 group"
         >
             <div className="flex flex-col gap-1">
@@ -19,7 +22,8 @@ function ApplicationItem({ id, company, position, status, appliedAt }) {
                 </h3>
                 <p className="text-sm text-gray-600">{position}</p>
                 <p className="text-xs text-gray-400">
-                    Applied on {new Date(appliedAt).toLocaleDateString()}
+                    <span className="font-medium">Applied:</span>{" "}
+                    {applied_at ? formatDate(applied_at) : "N/A"}
                 </p>
             </div>
 
