@@ -1,8 +1,23 @@
 @import "tailwindcss";
 
-:root {
-    body {
-        background-color: var(--color-gray-50);
-        color: var(--color-gray-800);
-    }
+body {
+    background-color: var(--color-gray-50);
+    color: var(--color-gray-800);
+}
+
+.input {
+    width: 100%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-width: 1px;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: #1f2937; /* Tailwind's text-gray-800 */
+    outline: none;
+}
+.input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe; /* Tailwind's ring-blue-200 */
 }

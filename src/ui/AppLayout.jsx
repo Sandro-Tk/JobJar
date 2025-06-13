@@ -18,9 +18,9 @@ function AppLayout() {
                 />
             )}
             <div
-                className={`p-4 fixed top-[110px] left-0 z-40 w-60 transform transition-transform duration-300
-    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-    md:relative md:top-0 md:h-auto md:translate-x-0 md:block md:col-span-1`}
+                className={`p-4 fixed top-[110px] left-0 z-40 w-60 transform transition-transform duration-300 ${
+                    isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                } md:relative md:top-0 md:h-auto md:translate-x-0 md:block md:col-span-1`}
             >
                 <Sidebar onNavItemClick={() => setIsSidebarOpen(false)} />
             </div>

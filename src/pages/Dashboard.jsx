@@ -1,16 +1,11 @@
-import { useUser } from "../features/authentication/useUser";
+import Overview from "../features/dashboard/Overview";
+import RecentApplications from "../features/dashboard/RecentApplications";
 
 export default function Dashboard() {
-    const { user } = useUser();
-    console.log(user);
-    const { display_name } = user.user_metadata;
-
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold">Welcome, {display_name}</h1>
-            <p className="text-sm text-gray-500 mt-1">
-                This will be your job tracker dashboard.
-            </p>
+            <Overview />
+            <RecentApplications />
         </div>
     );
 }

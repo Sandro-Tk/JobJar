@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-function NavItem({ icon: Icon, label, to }) {
+function NavItem({ onNavItemClick, icon: Icon, label, to }) {
     return (
         <NavLink
+            onClick={onNavItemClick}
             to={to}
             className={({
                 isActive,

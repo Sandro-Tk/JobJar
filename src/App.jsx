@@ -40,7 +40,7 @@ function App() {
                         <Route element={<Dashboard />} path="dashboard"></Route>
                         <Route
                             element={<Applications />}
-                            path="applications"
+                            path="all_applications"
                         ></Route>
                         <Route
                             element={<NewApplication />}
