@@ -2,22 +2,13 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useCreateApplication } from "./useCreateApplication";
 import InputField from "../../ui/InputField";
-import SelectField from "../../ui/SelectField";
+import StatusField from "../../ui/StatusField";
 import TextAreaField from "../../ui/TextAreaField";
 import DateField from "../../ui/DateField";
 import SubmitButton from "../../ui/SubmitButton";
 import SpinnerMini from "../../ui/SpinnerMini";
 
-const statusOptions = [
-    "Applied",
-    "Interview",
-    "Offer",
-    "Rejected",
-    "Ghosted",
-    "Archived",
-];
-
-export default function AddApplicationForm() {
+function AddApplicationForm() {
     const navigate = useNavigate();
     const {
         register,
@@ -70,9 +61,9 @@ export default function AddApplicationForm() {
                     name="applied_at"
                     error={errors.applied_at}
                 />
-                <SelectField
+                <StatusField
+                    hideAllOption
                     label="Status"
-                    options={statusOptions}
                     {...register("status", { required: true })}
                     error={errors.status}
                 />
@@ -94,3 +85,5 @@ export default function AddApplicationForm() {
         </div>
     );
 }
+
+export default AddApplicationForm;

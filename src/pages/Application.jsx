@@ -8,10 +8,12 @@ import ApplicationField from "../ui/ApplicationField";
 import ApplicationHeader from "../ui/ApplicationHeader";
 import Modal from "../ui/Modal";
 import UpdateApplicationForm from "../features/allApplications/UpdateApplicationForm";
+import ConfirmAction from "../ui/ConfirmAction";
 
 function Application() {
     const [searchParams] = useSearchParams();
     const [isEditing, setIsEditing] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
     const id = searchParams.get("id");
     const navigate = useNavigate();
 
@@ -19,13 +21,9 @@ function Application() {
     const { data: app, isLoading, isError, error } = useApplication(id);
 
     const handleDelete = () => {
-        if (
-            window.confirm("Are you sure you want to delete this application?")
-        ) {
-            deleteApplication(id, {
-                onSuccess: () => navigate("/dashboard"),
-            });
-        }
+        deleteApplication(id, {
+            onSuccess: () => navigate("/dashboard"),
+        });
     };
 
     if (!id)
@@ -45,7 +43,7 @@ function Application() {
     return (
         <div className="max-w-2xl mx-auto bg-white border shadow rounded p-6 space-y-4">
             <ApplicationHeader
-                onDelete={handleDelete}
+                onDelete={() => setShowConfirm(true)}
                 onEdit={() => setIsEditing(true)}
             />
 
@@ -86,6 +84,16 @@ function Application() {
                         onClose={() => setIsEditing(false)}
                     />
                 </Modal>
+            )}
+            {showConfirm && (
+                <ConfirmAction
+                    message="Are you sure you want to delete this application?"
+                    onCancel={() => setShowConfirm(false)}
+                    onConfirm={() => {
+                        handleDelete();
+                        setShowConfirm(false);
+                    }}
+                />
             )}
         </div>
     );

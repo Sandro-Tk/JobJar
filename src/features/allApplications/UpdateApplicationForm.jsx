@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useUpdateApplication } from "./useUpdateApplication";
+import StatusField from "../../ui/StatusField";
 
 function UpdateApplicationForm({ application, onClose }) {
     const {
@@ -60,18 +61,12 @@ function UpdateApplicationForm({ application, onClose }) {
             </div>
 
             <div>
-                <label className="block text-sm font-medium">Status</label>
-                <select
-                    className="input"
+                <StatusField
+                    label="Status"
+                    error={errors.status && "Required"}
+                    hideAllOption
                     {...register("status", { required: true })}
-                >
-                    <option value="Applied">Applied</option>
-                    <option value="Interview">Interview</option>
-                    <option value="Offer">Offer</option>
-                    <option value="Rejected">Rejected</option>
-                    <option value="Ghosted">Ghosted</option>
-                    <option value="Archived">Archived</option>
-                </select>
+                />
             </div>
 
             <div>

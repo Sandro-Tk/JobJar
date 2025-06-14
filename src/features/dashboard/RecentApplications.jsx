@@ -1,11 +1,12 @@
 import { useApplications } from "../allApplications/useApplications";
 import ApplicationItem from "../../ui/ApplicationItem";
+import HeaderButton from "../../ui/HeaderButton";
 
 function RecentApplications() {
     const { applications } = useApplications();
 
     const sortedApps = [...applications].sort(
-        (a, b) => new Date(b.appliedAt) - new Date(a.appliedAt)
+        (a, b) => new Date(b.applied_at) - new Date(a.applied_at)
     );
 
     const recentApps = sortedApps.slice(0, 5);
