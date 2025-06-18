@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useUpdateApplication } from "./useUpdateApplication";
 import StatusField from "../../ui/StatusField";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function UpdateApplicationForm({ application, onClose }) {
     const {
@@ -83,16 +84,16 @@ function UpdateApplicationForm({ application, onClose }) {
                 <button
                     type="button"
                     onClick={onClose}
-                    className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+                    className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 cursor-pointer"
                 >
                     Cancel
                 </button>
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 cursor-pointer"
                 >
-                    {isLoading ? "Saving..." : "Save"}
+                    {isLoading ? <SpinnerMini /> : "Save"}
                 </button>
             </div>
         </form>

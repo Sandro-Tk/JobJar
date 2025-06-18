@@ -1,5 +1,7 @@
+import UserSettings from "../features/settings/UserSettings";
+
 function Settings() {
-    return <div>user settings</div>;
+    return <UserSettings />;
 }
 
 export default Settings;

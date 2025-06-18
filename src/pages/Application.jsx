@@ -18,7 +18,13 @@ function Application() {
     const navigate = useNavigate();
 
     const { deleteApplication, isDeleting } = useDeleteApplication();
-    const { data: app, isLoading, isError, error } = useApplication(id);
+    const {
+        data: app,
+        isLoading,
+        isError,
+        error,
+        isSuccess,
+    } = useApplication(id);
 
     const handleDelete = () => {
         deleteApplication(id, {
@@ -26,19 +32,27 @@ function Application() {
         });
     };
 
-    if (!id)
+    if (!id) {
         return (
             <p className="text-gray-500 text-sm">No application selected.</p>
         );
+    }
+
     if (isLoading || isDeleting) return <Spinner />;
-    if (isError)
+
+    if (isError) {
         return (
             <p className="text-red-600">
                 Error: {error?.message || "Unknown error"}
             </p>
         );
-    if (!app)
+    }
+
+    if (isSuccess && !app) {
         return <p className="text-gray-500 text-sm">Application not found.</p>;
+    }
+
+    if (!app) return null;
 
     return (
         <div className="max-w-2xl mx-auto bg-white border shadow rounded p-6 space-y-4">

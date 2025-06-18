@@ -6,7 +6,6 @@ export function useUser() {
         queryKey: ["user"],
         queryFn: getCurrentUser,
         retry: false,
-        staleTime: 1000 * 60 * 5
     });
 
     return { isLoading, user, isAuthenticated: user?.role === "authenticated" };

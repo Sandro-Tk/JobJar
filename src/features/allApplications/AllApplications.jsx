@@ -96,7 +96,7 @@ function AllApplications() {
                 <button
                     onClick={() => handlePageChange(page - 1)}
                     disabled={page === 1}
-                    className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+                    className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50 cursor-pointer"
                 >
                     Prev
                 </button>
@@ -106,7 +106,7 @@ function AllApplications() {
                 <button
                     onClick={() => handlePageChange(page + 1)}
                     disabled={page === totalPages}
-                    className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+                    className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50 cursor-pointer"
                 >
                     Next
                 </button>
