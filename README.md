@@ -32,4 +32,4 @@ Includes responsive UI, filtering, and smooth user experience across desktop and
 ---
 
 ## 🖥 Live Website
--  
+-   https://jobjar.vercel.app
