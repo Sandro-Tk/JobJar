@@ -4,10 +4,9 @@ import supabase from "../services/supabase";
 import HeaderButton from "./HeaderButton";
 import toast from "react-hot-toast";
 import Logo from "./Logo";
-import DarkModeToggle from "./DarkModeToggle";
 import { FiMenu } from "react-icons/fi";
 
-export default function Header({ onMenuClick }) {
+function Header({ onMenuClick }) {
     const { user } = useUser();
 
     const navigate = useNavigate();
@@ -44,7 +43,6 @@ export default function Header({ onMenuClick }) {
                                 {displayName}
                             </span>
                         </span>
-                        <DarkModeToggle />
                         <HeaderButton onClick={handleLogout}>
                             Logout
                         </HeaderButton>
@@ -54,3 +52,5 @@ export default function Header({ onMenuClick }) {
         </header>
     );
 }
+
+export default Header;

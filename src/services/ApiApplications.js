@@ -71,3 +71,14 @@ export async function deleteApplication(id) {
 
     return true;
 }
+
+export async function archiveApplication(id) {
+    const { error } = await supabase
+        .from("applications")
+        .update({ status: "Archived" })
+        .eq("id", id);
+
+    if (error) throw new Error("Could not archive application");
+
+    return true
+}

@@ -5,7 +5,7 @@ import InputField from "../ui/InputField";
 import FormButton from "../ui/FormButton";
 import SpinnerMini from "../ui/SpinnerMini";
 
-export default function PasswordUpdateForm() {
+function PasswordUpdateForm() {
     const [newPassword, setNewPassword] = useState("");
     const [confirm, setConfirm] = useState("");
     const [isUpdating, setIsUpdating] = useState(false);
@@ -90,3 +90,5 @@ export default function PasswordUpdateForm() {
         </form>
     );
 }
+
+export default PasswordUpdateForm;

@@ -3,7 +3,7 @@ import DisplayNameForm from "../../ui/DisplayNameForm";
 import PasswordUpdateForm from "../../ui/PasswordUpdateForm";
 import ExportDataButton from "../../ui/ExportDataButton";
 
-export default function UserSettings() {
+function UserSettings() {
     const { user } = useUser();
 
     return (
@@ -33,3 +33,5 @@ export default function UserSettings() {
         </div>
     );
 }
+
+export default UserSettings;

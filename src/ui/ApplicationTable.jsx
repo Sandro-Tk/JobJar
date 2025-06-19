@@ -1,6 +1,6 @@
 import ApplicationTableRow from "../ui/ApplicationTableRow";
 
-export default function ApplicationTable({ applications }) {
+function ApplicationTable({ applications }) {
     return (
         <table className="min-w-full text-sm border bg-white rounded shadow overflow-hidden">
             <thead className="bg-gray-100 text-left text-gray-600 uppercase text-xs">
@@ -9,7 +9,7 @@ export default function ApplicationTable({ applications }) {
                     <th className="px-4 py-3">Position</th>
                     <th className="px-4 py-3">Status</th>
                     <th className="px-4 py-3">Applied</th>
-                    <th className="px-4 py-3 text-right">Actions</th>
+                    <th className="px-4 py-3 text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,3 +20,5 @@ export default function ApplicationTable({ applications }) {
         </table>
     );
 }
+
+export default ApplicationTable;

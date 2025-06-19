@@ -1,5 +1,5 @@
 import NavItem from "./NavItem";
-import { HiCog6Tooth, HiHome } from "react-icons/hi2";
+import { HiArchiveBox, HiCog6Tooth, HiHome } from "react-icons/hi2";
 import { FiFileText, FiPlusCircle } from "react-icons/fi";
 
 function Sidebar({ onNavItemClick }) {
@@ -28,6 +28,12 @@ function Sidebar({ onNavItemClick }) {
                 to="/settings"
                 label="User settings"
                 icon={HiCog6Tooth}
+            />
+            <NavItem
+                onNavItemClick={onNavItemClick}
+                to="/archive"
+                label="Archived applications"
+                icon={HiArchiveBox}
             />
         </nav>
     );

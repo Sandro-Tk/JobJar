@@ -1,4 +1,4 @@
-export default function TextAreaField({ label, ...rest }) {
+function TextAreaField({ label, ...rest }) {
     return (
         <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -8,3 +8,5 @@ export default function TextAreaField({ label, ...rest }) {
         </div>
     );
 }
+
+export default TextAreaField;

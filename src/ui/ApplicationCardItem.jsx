@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import formatDate from "../utils/formatDate";
+import { statusStyles } from "../utils/constants";
 
-export default function ApplicationCardItem({ application }) {
+function ApplicationCardItem({ application }) {
     return (
         <Link
             to={`/application?id=${application.id}`}
@@ -14,9 +15,15 @@ export default function ApplicationCardItem({ application }) {
             <p className="text-xs text-gray-500 mt-1">
                 Applied: {formatDate(application.applied_at)}
             </p>
-            <p className="mt-2 text-sm font-medium capitalize text-blue-600">
+            <p
+                className={`mt-2 text-sm font-medium capitalize  px-3 py-1 rounded-full w-fit ${
+                    statusStyles[application.status]
+                }`}
+            >
                 {application.status}
             </p>
         </Link>
     );
 }
+
+export default ApplicationCardItem;

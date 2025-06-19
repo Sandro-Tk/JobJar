@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import supabase from "../services/supabase";
 
-export default function ExportDataButton() {
+function ExportDataButton() {
     async function handleExport() {
         const { data, error } = await supabase.from("applications").select("*");
 
@@ -42,3 +42,5 @@ export default function ExportDataButton() {
         </button>
     );
 }
+
+export default ExportDataButton;

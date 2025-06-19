@@ -12,6 +12,7 @@ import Settings from "./pages/Settings";
 import SignUpForm from "./features/Authentication/SignUpForm";
 import LoginForm from "./features/authentication/LoginForm";
 import PageNotFound from "./ui/PageNotFound";
+import ArchivedApplications from "./pages/ArchivedApplications";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -51,6 +52,7 @@ function App() {
                             element={<Application />}
                             path="application"
                         ></Route>
+                        <Route element={<ArchivedApplications />} path="archive"></Route>
                         <Route element={<Settings />} path="settings"></Route>
                     </Route>
                     <Route element={<LoginForm />} path="login"></Route>

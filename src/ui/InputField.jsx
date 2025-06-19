@@ -1,6 +1,6 @@
 import Input from "./Input";
 
-export default function InputField({ label, error, id, className, ...props }) {
+function InputField({ label, error, id, className, ...props }) {
     return (
         <div>
             <label
@@ -18,3 +18,4 @@ export default function InputField({ label, error, id, className, ...props }) {
         </div>
     );
 }
+export default InputField;

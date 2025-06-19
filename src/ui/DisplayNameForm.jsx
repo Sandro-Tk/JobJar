@@ -6,7 +6,7 @@ import InputField from "../ui/InputField";
 import FormButton from "../ui/FormButton";
 import SpinnerMini from "../ui/SpinnerMini";
 
-export default function DisplayNameForm({ user }) {
+function DisplayNameForm({ user }) {
     const [fullName, setFullName] = useState(
         user.user_metadata?.display_name || ""
     );
@@ -75,3 +75,5 @@ export default function DisplayNameForm({ user }) {
         </form>
     );
 }
+
+export default DisplayNameForm;

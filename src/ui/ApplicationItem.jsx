@@ -1,14 +1,6 @@
 import { Link } from "react-router-dom";
 import formatDate from "../utils/formatDate";
-
-const statusStyles = {
-    Applied: "bg-gray-100 text-gray-700",
-    Interview: "bg-indigo-100 text-indigo-700",
-    Offer: "bg-green-100 text-green-700",
-    Rejected: "bg-red-100 text-red-700",
-    Ghosted: "bg-yellow-100 text-yellow-700",
-    Archived: "bg-neutral-100 text-neutral-700",
-};
+import { statusStyles } from "../utils/constants";
 
 function ApplicationItem({ id, company, position, status, applied_at }) {
     return (

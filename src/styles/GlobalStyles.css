@@ -14,10 +14,10 @@ body {
     border-width: 1px;
     border-radius: 0.25rem;
     font-size: 0.875rem;
-    color: #1f2937; /* Tailwind's text-gray-800 */
+    color: #1f2937; 
     outline: none;
 }
 .input:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #bfdbfe; /* Tailwind's ring-blue-200 */
+    box-shadow: 0 0 0 2px #bfdbfe; 
 }

@@ -6,6 +6,8 @@ import Spinner from "../../ui/Spinner";
 import ApplicationCardItem from "../../ui/ApplicationCardItem";
 import ApplicationTable from "../../ui/ApplicationTable";
 import FiltersBar from "../../ui/FiltersBar";
+import NoApplications from "../../ui/NoApplications";
+import Pagination from "../../ui/Pagination";
 
 function AllApplications() {
     const { applications, isLoading } = useApplications();
@@ -43,22 +45,9 @@ function AllApplications() {
         });
     }
 
-    function handlePageChange(newPage) {
-        setPage(newPage);
-
-        setSearchParams((prev) => {
-            const params = new URLSearchParams(prev);
-            params.set("page", newPage);
-            if (filter === "all") params.delete("status");
-            else params.set("status", filter);
-            return params;
-        });
-    }
-
-    const filtered =
-        filter === "all"
-            ? applications
-            : applications.filter((app) => app.status === filter);
+    const filtered = applications
+        .filter((app) => app.status !== "Archived")
+        .filter((app) => (filter === "all" ? true : app.status === filter));
 
     const sorted = [...filtered].sort((a, b) => {
         const dateA = new Date(a.applied_at);
@@ -66,12 +55,10 @@ function AllApplications() {
         return sort === "asc" ? dateA - dateB : dateB - dateA;
     });
 
-    const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
     const paginated = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
     if (isLoading) return <Spinner />;
-    if (!applications.length)
-        return <p className="text-gray-600">No applications found.</p>;
+    if (!applications.length) return <NoApplications />;
 
     return (
         <div className="space-y-6">
@@ -92,25 +79,12 @@ function AllApplications() {
                 <ApplicationTable applications={paginated} />
             </div>
 
-            <div className="flex justify-center gap-2">
-                <button
-                    onClick={() => handlePageChange(page - 1)}
-                    disabled={page === 1}
-                    className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50 cursor-pointer"
-                >
-                    Prev
-                </button>
-                <span className="px-2 py-1 text-sm text-gray-700">
-                    Page {page} of {totalPages}
-                </span>
-                <button
-                    onClick={() => handlePageChange(page + 1)}
-                    disabled={page === totalPages}
-                    className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50 cursor-pointer"
-                >
-                    Next
-                </button>
-            </div>
+            <Pagination
+                filter={filter}
+                page={page}
+                setPage={setPage}
+                filtered={filtered}
+            />
         </div>
     );
 }

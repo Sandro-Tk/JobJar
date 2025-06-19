@@ -1,9 +1,21 @@
 import { STATUS_OPTIONS } from "../utils/constants";
 
-function StatusField({ label, error, hideAllOption = false, ...rest }) {
-    const options = hideAllOption
-        ? STATUS_OPTIONS.filter((status) => status !== "All")
-        : STATUS_OPTIONS;
+function StatusField({
+    label,
+    error,
+    hideAllOption = false,
+    hideArchiveOption = false,
+    ...rest
+}) {
+    let options = STATUS_OPTIONS;
+
+    if (hideAllOption) {
+        options = options.filter((status) => status !== "All");
+    }
+
+    if (hideArchiveOption) {
+        options = options.filter((status) => status !== "Archived");
+    }
 
     return (
         <div>

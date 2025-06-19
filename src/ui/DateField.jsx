@@ -1,6 +1,6 @@
 import { format, parseISO, isAfter } from "date-fns";
 
-export default function DateField({ label, error, register, name }) {
+function DateField({ label, error, register, name }) {
     const today = format(new Date(), "yyyy-MM-dd");
 
     return (
@@ -28,3 +28,5 @@ export default function DateField({ label, error, register, name }) {
         </div>
     );
 }
+
+export default DateField;
