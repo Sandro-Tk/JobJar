@@ -9,7 +9,7 @@ import Applications from "./pages/Applications";
 import Application from "./pages/Application";
 import AddApplication from "./pages/AddApplication";
 import Settings from "./pages/Settings";
-import SignUpForm from "./features/Authentication/SignUpForm";
+import SignUpForm from "./features/authentication/SignUpForm";
 import LoginForm from "./features/authentication/LoginForm";
 import PageNotFound from "./ui/PageNotFound";
 import ArchivedApplications from "./pages/ArchivedApplications";
