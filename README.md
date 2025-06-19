@@ -1,12 +1,35 @@
-# React + Vite
+# 🧠 JobJar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, full-featured job application tracker built with **React** and **Supabase**, designed to help users manage and organize their job hunt efficiently.  
+Includes responsive UI, filtering, and smooth user experience across desktop and mobile.
 
-Currently, two official plugins are available:
+---
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+-   🔐 **Authentication** (Sign up / Log in) with Supabase Auth
+-   🧾 **Add, edit, and delete job applications** with notes, links, and applied date
+-   📌 **Application status tracking**
+-   🧭 **Dashboard overview** with recent apps and total statistics
+-   🔎 **Filter, sort, and paginate** applications using search params
+-   📂 **Dedicated Archived Applications** page
+-   🧠 **User settings page** to update display name and password
+-   🔁 **Persistent login** and synced user data via React Query
+-   🧩 Modular, reusable components and clean file structure
+-   🚫 **404 Not Found page** for unmatched routes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+-   [React](https://reactjs.org/) (Vite)
+-   [Supabase](https://supabase.com/) (Auth + Database)
+-   [Tailwind CSS](https://tailwindcss.com/) for styling
+-   [React Query](https://tanstack.com/query/latest) for data fetching and caching
+-   [React Router DOM](https://reactrouter.com/) for routing
+-   [React Hook Form](https://react-hook-form.com/) + [React Hot Toast](https://react-hot-toast.com/) for form handling and feedback
+
+---
+
+## 🖥 Live Website
+-  
